@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipe';
+  header: string = 'receipe';
+
+  onRecipe(header: string) {
+    this.header = header;
+  }
+
+  onShopping(header: string) {
+    this.header = header;
+  }
 }
