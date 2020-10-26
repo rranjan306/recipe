@@ -1,0 +1,16 @@
+.btn.row{
+	margin-top: 20px;
+
+	>div > button{
+		margin-right: 5px;
+	}
+}
+
+.ingredients{
+	margin-bottom: 20px;
+
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+	border-color: red;
+}

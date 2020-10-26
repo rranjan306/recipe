@@ -1,21 +1,28 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" class="form-control" #nameInput>
+          <input type="text" class="form-control" name="name" ngModel #name='ngModel' required>
+          <span *ngIf="name.invalid && name.touched">Please provide name</span>
         </div>
         <div class="col-sm-2 form-group">
           <label for="amount">Amount</label>
-          <input type="number" id="amount" class="form-control" #amountInput>
+          <input type="number" class="form-control" name="amount" 
+            ngModel
+            #amount='ngModel'
+            required
+            pattern= "^[1-9]+[0-9]$">
+          <span *ngIf="amount.touched && !amount.value">Please provide amount</span>
+          <span *ngIf="amount.value < 0">Amount should be more than 0</span>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button type="button" class="btn btn-success" (click)="addIngredient()">Add</button>
-          <button type="button" class="btn btn-danger">Delete</button>
-          <button type="button" class="btn btn-warning">Clear</button>
+          <button type="submit" class="btn btn-success">{{editMode ? 'Update' : 'Add'}}</button>
+          <button type="button" class="btn btn-danger" (click)="onDelete()" *ngIf="editMode">Delete</button>
+          <button type="button" class="btn btn-warning" (click)="onClear()">Clear</button>
         </div>
       </div>
     </form>

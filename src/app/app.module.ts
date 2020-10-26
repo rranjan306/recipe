@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Providers
 import { RecipeService } from './services/recipe/recipe.service';
@@ -39,9 +40,11 @@ import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edi
   ],
   imports: [
     BrowserModule,
-    AppRouterModule
+    AppRouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
